@@ -1,48 +1,37 @@
-// Section 1
 let firstname = document.getElementById('firstName');
 let lastname = document.getElementById('lastName');
 let age = document.getElementById('age');
 let btn = document.getElementById('btn');
-let tr2 = document.getElementById('tr2');
+let tablemain = document.getElementById('tablemain');
+let btn2 = document.getElementById('btn2');
 
 btn.addEventListener('click', () => {
-    let td = document.createElement('td');
-    td.innerHTML = firstname.value;
-    tr2.append(td);
-})
+    let fnvalue = firstname.value.trim();
+    let lnvalue = lastname.value.trim();
+    let agevalue = age.value.trim();
 
+    let newtr = document.createElement("tr");
+    let newtd1 = document.createElement("td");
+    newtd1.innerHTML = firstname.value;
+    let newtd2 = document.createElement("td");
+    newtd2.innerHTML = lastname.value;
+    let newtd3 = document.createElement("td");
+    newtd3.innerHTML = age.value;
 
+    tablemain.append(newtr);
+    newtr.append(newtd1, newtd2, newtd3);
 
+    if (fnvalue == "") {
+        newtd1.innerHTML = "Not assigned";
+    } if (lnvalue == "") {
+        newtd2.innerHTML = "Not assigned";
+    } if (agevalue == "") {
+        newtd3.innerHTML = "Not assigned";
+    }
 
-// Section 2
-let btnblue = document.getElementById('colorBlue');
-let btnred = document.getElementById('colorRed');
-let btngreen = document.getElementById('colorGreen');
-let btnyellow = document.getElementById('colorYellow');
-let btnpurple = document.getElementById('colorPurple');
-let btnblack = document.getElementById('colorBlack');
-let box = document.getElementById('box');
-
-btnblue.addEventListener('click', () => {
-    box.style.backgroundColor = "blue";
+    firstname.value = "";
+    lastname.value = "";
+    age.value = "";
+    
 });
 
-btnred.addEventListener('click', () => {
-    box.style.backgroundColor = "red";
-});
-
-btngreen.addEventListener('click', () => {
-    box.style.backgroundColor = "green";
-});
-
-btnyellow.addEventListener('click', () => {
-    box.style.backgroundColor = "yellow";
-});
-
-btnpurple.addEventListener('click', () => {
-    box.style.backgroundColor = "purple";
-});
-
-btnblack.addEventListener('click', () => {
-    box.style.backgroundColor = "black";
-});
